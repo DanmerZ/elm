@@ -1,9 +1,9 @@
-﻿	subroutine ProfilesToFiles(imax, NFlux_, DFlux_, x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_)
+﻿	subroutine ProfilesToFiles(imax, NFlux_, DFlux_, x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_,RSol_,ISol_)
 		use Profiles
 		implicit none
 
 		integer, intent(in) :: imax
-		real(8), dimension(imax), intent(in) :: NFlux_,DFlux_,x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_
+		real(8), dimension(imax), intent(in) :: NFlux_,DFlux_,x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_,RSol_,ISol_
 
 		integer :: i
 
@@ -15,6 +15,7 @@
 		open(15, file="data/DP.dat")
 		open(16, file="data/E.dat")
 		open(17, file="data/Q.dat")
+		open(18, file="data/Sol.dat")
 
 		do i = 1, imax
 			write(11,100) x_(i), NFlux_(i), DFlux_(i)
@@ -24,6 +25,7 @@
 			write(15,100) x_(i), DPe_(i), DPi_(i), DPe_(i) + DPi_(i)
 			write(16,100) x_(i), E_(i)
 			write(17,100) x_(i), ReQ_(i), ImQ_(i)
+			write(18,100) x_(i), RSol_(i), 0.5*x_(i)*(x_(i)+1.) !ISol_(i)
 		end do
 
 		close(11)
@@ -33,6 +35,7 @@
 		close(15)
 		close(16)
 		close(17)
+		close(18)
 	
 
 	end subroutine ProfilesToFiles
