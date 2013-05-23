@@ -2,3 +2,5 @@
 *.o
 *.dat
 *.png
+*.jpeg
+*.tif
