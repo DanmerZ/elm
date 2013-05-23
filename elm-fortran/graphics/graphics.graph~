@@ -1,0 +1,13 @@
+#! /usr/bin/gnuplot -persist
+set terminal jpeg enhanced
+set output "~/Documents/Science/MagisterProject/Code/MagisterDiploma/elm2/graphics/Q.jpeg"
+#set encoding koi8r  
+set xlabel "Normalized radius, a_{N}" font "Helvetica,18"
+set ylabel "Q_{m}" font "Helvetica,18"
+#set title "Q_{m}"
+set xrange [0.94:0.97]
+#set style line 5 lt 1 pt 1
+plot "~/Documents/Science/MagisterProject/Code/MagisterDiploma/elm2/data/Q.dat" using 1:2 title "Q_m" with lines lw 2, \ 
+     "~/Documents/Science/MagisterProject/Code/MagisterDiploma/elm2/data/Q.dat" using 1:3 title "Q_m" with lines lw 2 
+#replot
+#unset output

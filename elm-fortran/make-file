@@ -1,0 +1,1 @@
+gfortran Profiles.f90 main.f90 Flux.f90 ProfilesArrays.f90 ProfilesToFiles.f90 Q.f90 -o elm
