@@ -1,5 +1,4 @@
-OBJECTS = Profiles.o ArDef.o main.o Flux.o ProfilesArrays.o ProfilesToFiles.o \
-          Q.o Equation.o Bootstrap.o
+OBJECTS = Profiles.o ArDef.o main.o Flux.o ProfilesArrays.o ProfilesToFiles.o Q.o Equation.o
 
 main.exe: $(OBJECTS)
 	gfortran $(OBJECTS) -o main.exe

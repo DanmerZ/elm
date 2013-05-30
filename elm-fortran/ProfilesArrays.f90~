@@ -1,8 +1,12 @@
-﻿subroutine ProfilesArrays 
+﻿subroutine ProfilesArrays !(imax,start,finish,x_,NFlux_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_)
  use Profiles
  use ArDef
  implicit none
 
+ !integer, intent(in) :: imax
+ !real(8), intent(in) :: start, finish
+ !real(8), dimension(imax), intent(in) :: NFlux_, x_
+ !real(8), dimension(imax), intent(out) :: ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_
 
  integer i
  real(8) x, dx

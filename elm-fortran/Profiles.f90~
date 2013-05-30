@@ -184,46 +184,47 @@ function Ef(x)
  ga3 = 1.4
  k1 = -0.6
 
-		if (x >=0.940d0) then
-			Ef = 1000*(d1+r1*(x1-f1)*exp(be+ce*r1*(x1-f1))*exp(-(a1*r1*(x1-f1))**2))
-		else if (x < 0.940d0) then
-			Ef = 1000*(ga1*exp(-ga2*(x1 - ga3)**2) + k1*x1)
-		end if
-		!if (Ef >= 0 .and. x <= 1.0d0) Ef = 0.0d0
+if (x >=0.940d0) then
+	Ef = 1000*(d1+r1*(x1-f1)*exp(be+ce*r1*(x1-f1))*exp(-(a1*r1*(x1-f1))**2))
+else if (x < 0.940d0) then
+	Ef = 1000*(ga1*exp(-ga2*(x1 - ga3)**2) + k1*x1)
+end if
+	!if (Ef >= 0 .and. x <= 1.0d0) Ef = 0.0d0
 	
-	end function Ef 
+end function Ef 
 
-!===================== speed of toroidal rotation cm/sec =======================================
+!===================== speed of toroidal rotation cm/sec =======================
 
-		function V0(x)   !speed
-		 implicit none 
-		 real(8), intent(in) :: x
-		 real(8) V0
-		!V0 = -4500000	
-		 !V0 = -100000000    !cm/sec
-		 V0 = 0.0d0
-		end function V0	
+function V0(x)   !speed
+ implicit none 
+ real(8), intent(in) :: x
+ real(8) V0
+!V0 = -4500000	
+ !V0 = -100000000    !cm/sec
+ V0 = 0.0d0
+end function V0	
 
-!=================================================================================
-		function sigma(x)  !conductivity
-	     implicit none
-		 real(8), intent(in) :: x
-		 real(8) sigma	
+!==============================conductivity===================================
+function sigma(x)  !conductivity
+ implicit none
+ real(8), intent(in) :: x
+ real(8) sigma	
 
-		 sigma = 1.2d+17 * (Te(x)/500.0d0)**1.5
+ sigma = 1.2d+17 * (Te(x)/500.0d0)**1.5
 
-		end function sigma
+end function sigma
+
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		function HeavisideTheta(x)
-		 implicit none
-		 real(8), intent(in) :: x
-		 real(8) HeavisideTheta
-		 if (x < 0.0) then
-			HeavisideTheta = 0.0
-		 else
-			HeavisideTheta = 1.0
-		 end if
+function HeavisideTheta(x)
+ implicit none
+ real(8), intent(in) :: x
+ real(8) HeavisideTheta
+ if (x < 0.0) then
+	HeavisideTheta = 0.0
+ else
+	HeavisideTheta = 1.0
+ end if
 
-		end function HeavisideTheta
+end function HeavisideTheta
 
-	 end module Profiles
+end module Profiles

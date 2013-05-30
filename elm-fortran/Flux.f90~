@@ -1,7 +1,11 @@
-﻿subroutine CalculateFlux 
+﻿subroutine CalculateFlux !(start, finish, imax, x_, NFlux_, DFlux_ )
  use Profiles
  use ArDef
  implicit none
+
+ !integer, intent(in) :: imax	
+ !real(8), intent(in) :: start, finish
+ !real(8), dimension(imax), intent(out) :: NFlux_, DFlux_, x_
 
  integer i
  real(8) x, dx, s, x1, psi1

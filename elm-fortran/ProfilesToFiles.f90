@@ -1,9 +1,9 @@
-﻿subroutine ProfilesToFiles(imax, NFlux_, DFlux_, x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_,RSol_,ISol_,ReQ1_,ImQ1_)
+﻿subroutine ProfilesToFiles 
  use Profiles
+ use ArDef
  implicit none
 
- integer, intent(in) :: imax
- real(8), dimension(imax), intent(in) :: NFlux_,DFlux_,x_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_,RSol_,ISol_,ReQ1_,ImQ1_
+
 
  integer :: i
 

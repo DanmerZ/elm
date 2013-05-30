@@ -1,12 +1,7 @@
-     subroutine SolveEq(start,finish,imax,x_,ReQ_,ImQ_,RSol_,ISol_)
+     subroutine SolveEq 
       use Profiles
-      implicit none
-      integer, intent(in) :: imax	  
-	  real(8), intent(in) :: start  
-	  real(8), intent(in) :: finish   
-	  real(8), dimension(imax), intent(in) :: ReQ_, ImQ_
-	  real(8), dimension(imax), intent(in) :: x_ 
-	  real(8), dimension(imax), intent(inout) :: RSol_,ISol_  
+      use ArDef
+      implicit none      	   
 	  	  
 	  real(8) :: u1p,u1n,u2p,u2n, v1p,v1n,v2p,v2n  !u - real y,  v - imaginary y
 	  real(8) :: sh1, sh2  !shooting method's start values

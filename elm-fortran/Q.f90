@@ -1,11 +1,8 @@
-﻿subroutine CalculateQ(imax,x_,NFlux_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_,ReQ_,ImQ_,ReQ1_,ImQ1_)
+﻿subroutine CalculateQ 
  use Profiles
+ use ArDef
  implicit none
-
- integer, intent(in) :: imax		
- real(8), dimension(imax), intent(in) :: NFlux_, x_
- real(8), dimension(imax), intent(in) :: ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_
- real(8), dimension(imax), intent(out) :: ReQ_,ImQ_,ReQ1_,ImQ1_ 
+ 
 
  real(8), dimension(imax) :: Km_, A_
  real(8), dimension(imax) :: znam_
