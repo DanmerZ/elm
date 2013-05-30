@@ -6,7 +6,8 @@ module ArDef
 	  
  real(8), dimension(imax) :: x_ 
  real(8), dimension(imax) :: NFlux_,DFlux_,ne_,Te_,Ti_,Pe_,Pi_,E_   ! '_' => arrays 
- real(8), dimension(imax) :: DPe_, DPi_
+ real(8), dimension(imax) :: NFlux1_
+ real(8), dimension(imax) :: DPe_, DPi_, DTe_, DTi_, Dne_
  real(8), dimension(imax) :: ReQ_, ImQ_, ReQ1_,ImQ1_
  !real(8), dimension(imax) :: RePressurePert_, ImPressurePert_, RePressurePert1_, ImPressurePert1_
  real(8), dimension(imax) :: RSol_,ISol_ 

@@ -1,5 +1,5 @@
 GFORTRAN module version '9' created from Profiles.f90
-MD5:0d589291d8b4c1fe48a04b07b6a5dfc7 -- If you edit this, you'll get what you deserve.
+MD5:e2c01c05a888738ed6b4bddea6179c6d -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -66,8 +66,8 @@ UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 8 0 0 0 REAL ()) 31 0 (32) ()
 30 () () () 0 0)
 33 'q1' 'profiles' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL
-UNKNOWN 0 0 FUNCTION) (REAL 8 0 0 0 REAL ()) 34 0 (35) () 33 () () () 0
-0)
+UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 8 0 0 0 REAL ()) 34 0 (35) ()
+33 () () () 0 0)
 36 'sigma' 'profiles' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL
 UNKNOWN 0 0 FUNCTION) (REAL 8 0 0 0 REAL ()) 37 0 (38) () 36 () () () 0
 0)

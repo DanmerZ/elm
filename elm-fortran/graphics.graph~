@@ -9,6 +9,7 @@ set ylabel "Q_{m}" font "Helvetica,18"
 set xrange [0.9:1]
 #set yrange [0.:0.6]
 #set style line 5 lt 1 pt 1
-plot "data/Q1.dat" using 1:2 title "Q_m" with lines lw 2 , "data/Q1.dat" using 1:3 title "Q_m" with lines lw 2 
+set grid
+plot "data/Q.dat" using 1:2 title "Q_m" with lines lw 2 , "data/Q1.dat" using 1:3 title "Q_m" with lines lw 2 
 replot
 #unset output

@@ -1,22 +1,25 @@
-﻿subroutine ProfilesArrays !(imax,start,finish,x_,NFlux_,ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_)
+﻿subroutine ProfilesArrays 
  use Profiles
  use ArDef
  implicit none
 
- !integer, intent(in) :: imax
- !real(8), intent(in) :: start, finish
- !real(8), dimension(imax), intent(in) :: NFlux_, x_
- !real(8), dimension(imax), intent(out) :: ne_,Te_,Ti_,Pe_,Pi_,E_,DPe_,DPi_
 
  integer i
  real(8) x, dx
- real(8) psi1, psi2	
+ real(8) psi1, psi2
+	
 		
  100	format(4E14.5)
  dx = (finish-start)/1.0d0/imax 
 		
  DPe_(1) = (Pe(NFlux_(2)) - Pe(NFlux_(1))) / dx 
  DPi_(1) = (Pi(NFlux_(2)) - Pi(NFlux_(1))) / dx
+ 
+ DTe_(1) = (Te(NFlux_(2)) - Te(NFlux_(1))) / dx 
+ DTi_(1) = (Ti(NFlux_(2)) - Ti(NFlux_(1))) / dx
+ 
+ Dne_(1) = (ne(NFlux_(2)) - ne(NFlux_(1))) / dx 
+
 
  do  i = 1, imax
 					
@@ -29,8 +32,11 @@
 	Pi_(i) = Pi(NFlux_(i))
 	if (i > 1) then
 		psi1 = NFlux_(i); psi2 = NFlux_(i-1)
-		DPe_(i) = (Pe(psi1)-Pe(psi2))/dx;
-		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx;				
+		DPe_(i) = (Pe(psi1)-Pe(psi2))/dx
+		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx	
+		DTe_(i) = (Te(psi1)-Te(psi2))/dx
+		DTi_(i) = (Ti(psi1)-Ti(psi2))/dx
+		Dne_(i) = (ne(psi1)-ne(psi2))/dx			
 	end if
 	E_(i) = Ef(NFlux_(i))
 			

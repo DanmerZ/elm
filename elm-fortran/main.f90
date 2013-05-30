@@ -3,9 +3,10 @@ program elm
  use ArDef
  implicit none	  		  
 
- call CalculateFlux 
+ call CalculateFlux
  call ProfilesArrays 
- call CalculateQ 		  
+ call CalculateQ 
+ call Bootstrap		  
  !call SolveEq 
  call ProfilesToFiles 
 

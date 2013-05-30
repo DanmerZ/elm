@@ -6,29 +6,39 @@
 
  integer i
  real(8) x, dx
- real(8) psi1, psi2	
+ real(8) psi1, psi2
+	
 		
  100	format(4E14.5)
  dx = (finish-start)/1.0d0/imax 
 		
- DPe_(1) = (Pe(NFlux_(2)) - Pe(NFlux_(1))) / dx 
- DPi_(1) = (Pi(NFlux_(2)) - Pi(NFlux_(1))) / dx
+ DPe_(1) = (Pe(NFlux1_(2)) - Pe(NFlux1_(1))) / dx 
+ DPi_(1) = (Pi(NFlux1_(2)) - Pi(NFlux1_(1))) / dx
+ 
+ DTe_(1) = (Te(NFlux1_(2)) - Te(NFlux1_(1))) / dx 
+ DTi_(1) = (Ti(NFlux1_(2)) - Ti(NFlux1_(1))) / dx
+ 
+ Dne_(1) = (ne(NFlux1_(2)) - ne(NFlux1_(1))) / dx 
+
 
  do  i = 1, imax
 					
 	x = x_(i)
 			
-	ne_(i) = ne(NFlux_(i))
-	Te_(i) = Te(NFlux_(i))
-	Ti_(i) = Ti(NFlux_(i))
-	Pe_(i) = Pe(NFlux_(i))
-	Pi_(i) = Pi(NFlux_(i))
+	ne_(i) = ne(NFlux1_(i))
+	Te_(i) = Te(NFlux1_(i))
+	Ti_(i) = Ti(NFlux1_(i))
+	Pe_(i) = Pe(NFlux1_(i))
+	Pi_(i) = Pi(NFlux1_(i))
 	if (i > 1) then
-		psi1 = NFlux_(i); psi2 = NFlux_(i-1)
-		DPe_(i) = (Pe(psi1)-Pe(psi2))/dx;
-		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx;				
+		psi1 = NFlux1_(i); psi2 = NFlux1_(i-1)
+		DPe_(i) = (Pe(psi1)-Pe(psi2))/dx
+		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx	
+		DTe_(i) = (Te(psi1)-Te(psi2))/dx
+		DTi_(i) = (Ti(psi1)-Ti(psi2))/dx
+		Dne_(i) = (ne(psi1)-ne(psi2))/dx			
 	end if
-	E_(i) = Ef(NFlux_(i))
+	E_(i) = Ef(NFlux1_(i))
 			
  end do
 

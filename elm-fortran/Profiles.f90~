@@ -19,21 +19,20 @@ contains
 function q(x)
  implicit none
  real(8) q
- real(8), intent(in) :: x		 
- q = 1.0d0 + cq1*x**cq2 
+ real(8), intent(in) :: x
+ real(8) :: b
+ b = 0.870d0  !change q here!!!		 
+ q = b + cq1*x**cq2 
  !q = 1.0 + cq1*x**cq2
  !q = 1.0 + cq1*x**cq2 + 0.3*exp(-50.0*x**2) 
-
 end function q
 
+!this q for calculation profiles, attention, not change!!
 function q1(x)			
  implicit none
  real(8) q1
- real(8), intent(in) :: x
- !real(8) b, x0
- !x0 = 0.9578899999982754
- !b = abs(m)/1.0d0/n - cq1*x0**cq2					 
- q1 = q(x) !0.840d0 + cq1*x**cq2 
+ real(8), intent(in) :: x					 
+ q1 = 1.0d0 + cq1*x**cq2 
 end function q1	
 !========  Fm(an)  ===========================
 function Fm(x)  !Fm(an)
@@ -42,9 +41,9 @@ function Fm(x)  !Fm(an)
  real(8) Fm
  real(8) x1
  x1 = x
- Fm = abs(m)/q1(x1) - n 
+ Fm = abs(m)/q(x1) - n 
  if (x1 >= 1.0d0) then
-	Fm = abs(m)/q1(1.0d0)/x1/x1 - n
+	Fm = abs(m)/q(1.0d0)/x1/x1 - n
  end if
 
 end function Fm	
@@ -214,7 +213,7 @@ function sigma(x)  !conductivity
 
 end function sigma
 
-!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function HeavisideTheta(x)
  implicit none
  real(8), intent(in) :: x

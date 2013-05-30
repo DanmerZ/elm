@@ -1,6 +1,31 @@
 subroutine Bootstrap
- implicit none
  use Profiles 
  use ArDef
+ implicit none
+ 
+ integer :: i
+ real(8), dimension(imax) :: jb, djb
+ real(8) :: te1,ti1,ne1,dte1,dti1,dne1
+ 
+ real(8) :: dx
+ 
+ dx = (finish - start)/imax
+ 
+ do i = 1,imax
+     ne1 = 1.d+13*ne_(i)    !cm^-3
+     te1 = 1.1604d+4*Te_(i) !K
+     ti1 = 1.1604d+4*Ti_(i)  !K
+     dne1 = 1.d+13*Dne_(i)
+     dte1 = 1.1604d+4*DTe_(i)
+     dti1 = 1.1604d+4*DTi_(i)
+     jb(i) = ne1*q1(x_(i))*(2.44*(te1+ti1)*dne1/ne1 + 0.69*dte1 - 0.42*dti1)
+     
+ end do
+ 
+ 
+ do i = 2,imax
+     djb(i) = (jb(i) - jb(i-1)) / dx
+ end do
+ 
  
 end subroutine Bootstrap

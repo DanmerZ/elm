@@ -13,12 +13,12 @@
  ReQ_(1) = 0.0d0; ImQ_(1) = 0.0d0;
  x = x_(1)
  Km_(1) = (DPi_(1)*Ti_(1)/Pi_(1)/(ap/100.0) - E_(1))/B0/30000.0d0 + Fm(x)*x*ap*V01/(m*aR*c)	
- A_(1) = 80.0*PiNum*m*m*x* (DPe_(1)+DPi_(1))*(1.0d0/q1(x)/q1(x) - 8.0) /B0/B0
+ A_(1) = 80.0*PiNum*m*m*x* (DPe_(1)+DPi_(1))*(1.0d0/q(x)/q(x) - 8.0) /B0/B0
 
  do i = 2,imax
      x = x_(i)
      Km_(i) = (DPi_(i)*Ti_(i)/Pi_(i)/(ap/100.0) - E_(i))/B0/30000.0d0 + Fm(x)*x*ap*V01/(m*aR*c)	
-     A_(i) = 80.0*PiNum*m*m*x* (DPe_(i)+DPi_(i))*(1.0d0/q1(x)/q1(x) - 8.0) /B0/B0
+     A_(i) = 80.0*PiNum*m*m*x* (DPe_(i)+DPi_(i))*(1.0d0/q(x)/q(x) - 8.0) /B0/B0
      d1 = c/(4.0*PiNum*sigma(NFlux_(i))*x*ap)
      znam = (1.0d0/((m*Km_(i)*(Fm(x))**2)**2 + (A_(i)*d1)**2))
      znam_(i) = znam 
