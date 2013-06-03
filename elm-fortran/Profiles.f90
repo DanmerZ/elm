@@ -32,8 +32,9 @@ function q1(x)
  implicit none
  real(8) q1
  real(8), intent(in) :: x					 
- q1 = 1.0d0 + cq1*x**cq2 
+ q1 = 1.0d0 + 3.6*x**5.6 
 end function q1	
+
 !========  Fm(an)  ===========================
 function Fm(x)  !Fm(an)
  implicit none
