@@ -9,6 +9,9 @@ module ArDef
  real(8), dimension(imax) :: NFlux1_
  real(8), dimension(imax) :: DPe_, DPi_, DTe_, DTi_, Dne_
  real(8), dimension(imax) :: ReQ_, ImQ_, ReQ1_,ImQ1_
- !real(8), dimension(imax) :: RePressurePert_, ImPressurePert_, RePressurePert1_, ImPressurePert1_
+ real(8), dimension(imax) :: ReP_,ImP_
  real(8), dimension(imax) :: RSol_,ISol_ 
+ 
+ integer, parameter ::  i1=940, i2=1000
+ 
 end module ArDef

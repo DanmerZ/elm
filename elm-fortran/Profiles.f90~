@@ -34,6 +34,7 @@ function q1(x)
  real(8), intent(in) :: x					 
  q1 = 1.0d0 + 3.6*x**5.6 
 end function q1	
+
 !========  Fm(an)  ===========================
 function Fm(x)  !Fm(an)
  implicit none
@@ -90,9 +91,9 @@ function Te(x)   ! eV
 		 		 
  x1 = x - deltaX - 0.008
 
- tsep = 100
+ tsep = 100.
  Delta = 0.07
- at0 = 370			
+ at0 = 370.			
  xmid = 1 - Delta/2
  c1 = -0.029 
  !parameters, which impact on core profile
@@ -102,11 +103,11 @@ function Te(x)   ! eV
  alt2 = 1.50d0
 
  if (x <= xped) then
-	Te=tsep+at0*(tanh(2*(1-xmid)/Delta)-tanh(2*((x1-c1)-xmid)/Delta)) + &
-	HeavisideTheta(1 - (x)/xped)*at1*(1 - ((x)/xped)**alt1)**alt2
-	!HeavisideTheta(1 - (-c1 + x)/xped)*at1*(1 - ((-c1 + x)/xped)**alt1)**alt2
+	Te=tsep+at0*(tanh(2.*(1.-xmid)/Delta)-tanh(2.*((x1-c1)-xmid)/Delta)) + &
+	HeavisideTheta(1. - (x)/xped)*at1*(1. - ((x)/xped)**alt1)**alt2
+	!HeavisideTheta(1 - (-c1 + x1)/xped)*at1*(1 - ((-c1 + x1)/xped)**alt1)**alt2
  else 
-	Te=tsep+at0*(tanh(2*(1-xmid)/Delta)-tanh(2*((x1-c1)-xmid)/Delta))
+	Te=tsep+at0*(tanh(2.*(1.-xmid)/Delta)-tanh(2.*((x1-c1)-xmid)/Delta))
  end if
 
 end function Te
@@ -148,7 +149,7 @@ function Pe(x)   !Pa
  real(8) Pe
  real(8), intent(in) :: x
 
- Pe = 1.6*ne(x)*Te(x)		
+ Pe = 1.60217657*ne(x)*Te(x)		
 
 end function Pe
 !================= Pi, [Pa] ion pressure===============================

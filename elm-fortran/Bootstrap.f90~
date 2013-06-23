@@ -21,8 +21,8 @@ subroutine Bootstrap
      jb(i) = ne1*q(x_(i))*(2.44*(te1+ti1)*dne1/ne1 + 0.69*dte1 - 0.42*dti1)
      
  end do 
- print*, 'Te', Te_(9500), 'Ti',Ti_(9500), 'ne', ne_(9500)
- print*, 'dTe', DTe_(9500), 'dTi', DTi_(9500), 'dne', Dne_(9500)
+ !print*, 'Te', Te_(9500), 'Ti',Ti_(9500), 'ne', ne_(9500)
+ !print*, 'dTe', DTe_(9500), 'dTi', DTi_(9500), 'dne', Dne_(9500)
  
  djb(1) = (jb(2) - jb(1)) / dx
  
@@ -38,10 +38,25 @@ subroutine Bootstrap
  
  open(11, file="data/Bootstrap.dat")
  do i = 1, imax
-     write(11,*) x_(i), jbr(i), jbi(i)
+     write(11,*) x_(i),jbr(i),jbi(i)
      !write(11,*) x_(i), -jb(i)*c*((ap/aR)**(-0.5)) / B0
  end do
- close(11)
+ close(11) 
+ 
+ 200 format(A20,E10.2)
+ write(*,200) 'ne, cm-3', 1.d+13*ne_(i1*imax/i2)
+ write(*,200) 'Te, erg', 1.6022d-12*Te_(i1*imax/i2)
+ write(*,200) 'Ti, erg', 1.6022d-12*Ti_(i1*imax/i2)
+  write(*,200) 'dne, cm-3', 1.d+13*Dne_(i1*imax/i2)
+ write(*,200) 'dTe, erg', 1.6022d-12*DTe_(i1*imax/i2)
+ write(*,200) 'dTi, erg', 1.6022d-12*DTi_(i1*imax/i2)
+ write(*,200) 'P, dyne/cm^2', 1.d+13*ne_(i1*imax/i2)*1.6022d-12* (Te_(i1*imax/i2) + Ti_(i1*imax/i2)) 
+ write(*,200) 'ne*q*(2.44*......',jb(i1*imax/i2) 
+ write(*,200) 'd[n*q*(2.44...)]/dan = ', djb(i1*imax/i2)
+ write(*,*) 'Finally calculate:'
+write(*,200) 'Re', jbr(i1*imax/i2)
+ write(*,200) 'Im', jbi(i1*imax/i2)
+ 
  
  !full bootstrap current Ig
  !Ig = 0.0d0

@@ -20,8 +20,8 @@
 
 do i = 1, imax
     write(11,100) x_(i), NFlux_(i), DFlux_(i)
-    write(12,100) x_(i), ne_(i)
-    write(13,100) x_(i), Te_(i), Ti_(i)
+    write(12,100) x_(i), ne_(i), Fm(x_(i))
+    write(13,100) x_(i), Te_(i), DTe_(i) !Te_(i), Ti_(i)
     write(14,100) x_(i), Pe_(i), Pi_(i), Pe_(i) + Pi_(i)
     write(15,100) x_(i), DPe_(i), DPi_(i), DPe_(i) + DPi_(i)
     write(16,100) x_(i), E_(i)

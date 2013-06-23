@@ -1,0 +1,17 @@
+from pylab import *
+
+#Bootstrap current
+
+B = loadtxt("data/Bootstrap.dat")
+
+grid(True)
+xlim(0.9,1.)
+plot(B[:,0],B[:,1],'k',label='Re')
+plot(B[:,0],B[:,2],'k--',label='Im')
+xlabel(r'$a_{N}$')
+ylabel(r'Вычислить')
+legend()
+
+
+savefig("graphics/Bootstrap.png")
+
