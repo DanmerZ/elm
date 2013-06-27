@@ -1,5 +1,5 @@
 OBJECTS = Profiles.o ArDef.o main.o Flux.o ProfilesArrays.o ProfilesToFiles.o \
-          Q.o Equation.o Bootstrap.o Evans60.o
+          Q.o Bootstrap.o Evans60.o #Equation.o
 
 main.exe: $(OBJECTS)
 	gfortran $(OBJECTS) -o main.exe

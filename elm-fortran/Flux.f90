@@ -38,10 +38,8 @@
  i = 1
  DFlux_(1) = (NFlux_(2) - NFlux_(1))/dx
 		
- do i = 1,imax 
-	if (i > 1) then
-		DFlux_(i) = (NFlux_(i) - NFlux_(i-1))/dx				
-	end if
+ do i = 2,imax 	
+	DFlux_(i) = (NFlux_(i) - NFlux_(i-1))/dx
 	x1 = x1 + dx	
  end do	
 

@@ -3,10 +3,10 @@
   use ArDef
   implicit none
   integer i
-  real(8) :: dx,x1,x,d1,znam
+  real(8) :: dx,x1,x,d1,znam,sigma1
   real(8), dimension(imax) :: ne60_,Te60_,Ti60_,Pe60_,Pi60_,E60_,DPe60_,DPi60_
   real(8), dimension(imax) :: Km60_, A60_, znam60_
-  real(8), dimension(imax) :: ReQ,ImQ,ReP,ImP
+  real(8), dimension(imax) :: ReQ,ImQ,ReP,ImP,ReQ1,ImQ1
   dx = (finish-start)/1.0d0/imax
   x1=start
   100	format(4E14.5)
@@ -54,23 +54,37 @@
   close(16)
 
   ReQ(1) = 0.0d0; ImQ(1) = 0.0d0;
+  ReQ1(1) = 0.0d0; ImQ1(1) = 0.0d0;
   
   open(17,file="data/evans60/ppert.dat")
   open(18,file="data/evans60/Q.dat")
+  open(19,file="data/evans60/A.dat")
+  open(20,file="data/evans60/Q1.dat")
   do i=2,imax
     x=x_(i)
     A60_(i) = 80.0*PiNum*m*m*x*(DPe60_(i)+DPi60_(i))*(1.0d0/q(x)/q(x) - 9.0)/B0/B0
-    d1 = c/(4.0*PiNum*sigma(x)*x*ap)
+    sigma1 = 1.2d+17 * (Te60(x)/500.0d0)**1.5
+    d1 = c/(4.0*PiNum*sigma1*x*ap)
     znam=1.0d0/((m*Km60_(i)*(Fm(x))**2)**2 + (A60_(i)*d1)**2)
     ReQ(i) = znam*m*Km60_(i)*Km60_(i)*A60_(i)*Fm(x)*Fm(x)  
     ImQ(i) = znam*Km60_(i)*A60_(i)*A60_(i)*d1
+
+    ReQ1(i) = znam*m*Km60_(i)*Km60_(i)*Fm(x)*Fm(x)*Fm(x)
+    ImQ1(i) = znam*Km60_(i)*Fm(x)*A60_(i)*d1
+
     ReP(i) = -x*(DPe60_(i)+DPi60_(i))*(aR/ap)*m*Km60_(i)*Fm(x)*A60_(i)*znam*d1
 	ImP(i) = x*(DPe60_(i)+DPi60_(i))*(aR/ap)*m*m*Km60_(i)*Km60_(i)*Fm(x)*Fm(x)*Fm(x)*znam
+
 	write(17,100) x,ReP(i),ImP(i)
 	write(18,100) x,ReQ(i),ImQ(i)
+	write(19,100) x, A60_(i)
+	write(20,100) x,ReQ1(i),ImQ1(i)
+
   end do
   close(17)
   close(18)
+  close(19)
+  close(20)
   
 
   
