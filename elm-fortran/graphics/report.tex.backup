@@ -1,6 +1,7 @@
 \documentclass[11pt,oneside,a4paper,notitlepage]{article}
+\usepackage{flalign}
 \usepackage{graphicx,amsmath,hyperref}
-\usepackage[margin=2cm]{geometry}
+%\usepackage[margin=2.5cm]{geometry}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
@@ -20,7 +21,7 @@ Normalized polidal magnetic flux $\psi_N$ (\ref{eq:psi}, Fig.\ref{fig:Flux}):
 where $\mu=1/q$, $q(a_N)=1+3.6a_N^{5.6}$ is safety factor.
 \begin{figure}[h] 
  \centering
- \includegraphics[width=0.5\textwidth]{graphics/Flux.eps}
+ \includegraphics[width=0.5\textwidth]{Flux.eps}
  \caption{$\psi_N$ - normalized poloidal magnetic flux (NF2008)} 
  \label{fig:Flux}
 \end{figure}
@@ -48,14 +49,14 @@ normalized radius at Fig.\ref{fig:ne} and Fig.\ref{fig:T}.
 \begin{center}
 \begin{minipage}[h]{0.4\linewidth} 
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/ne.eps}
+ \includegraphics[width=1.35\linewidth]{ne.eps}
  \caption{Electron density, $10^{19} m^{-3}$ (NF2008)}
  \label{fig:ne}
 \end{minipage}
 \hfill
 \begin{minipage}[h]{0.4\linewidth}
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/T.eps}
+ \includegraphics[width=1.35\linewidth]{T.eps}
  \caption{Electron and ion temperature, eV (NF2008)}
  \label{fig:T}
 \end{minipage}
@@ -71,14 +72,14 @@ Pressure gradients are shown at Fig.\ref{fig:DP}.
 \begin{center}
 \begin{minipage}[ht]{0.4\linewidth} 
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/P.eps}
+ \includegraphics[width=1.35\linewidth]{P.eps}
  \caption{Electron, ion and total pressure, $kPa$ (NF2008)}
  \label{fig:P}
 \end{minipage}
 \hfill
 \begin{minipage}[ht]{0.4\linewidth} 
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/DP.eps}
+ \includegraphics[width=1.35\linewidth]{DP.eps}
  \caption{Pressure gradients, $kPa$ (NF2008)}
  \label{fig:DP}
 \end{minipage}
@@ -93,14 +94,14 @@ Radial electric field $E_{0r}(a_N)$ (Fig.\ref{fig:Efield}) is aproximated as (\r
 \begin{center}
 \begin{minipage}[ht]{0.4\linewidth} 
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/E.eps}
+ \includegraphics[width=1.35\linewidth]{E.eps}
  \caption{Radial electric field, $kV$ (NF2008)}
  \label{fig:Efield}
 \end{minipage}
 \hfill
 \begin{minipage}[h]{0.4\linewidth}
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/sigma.eps}
+ \includegraphics[width=1.35\linewidth]{sigma.eps}
  \caption{Plasma conductivity, $sec^{-1}$ (NF2008)}
  \label{fig:sigma}
 \end{minipage}
@@ -133,13 +134,13 @@ Quantities $K_m(a_N)$ (Eq.\ref{eq:km}, Fig.\ref{fig:km}) and $A(a_N)$
 \begin{figure}[h]
 \begin{center}
  \begin{minipage}[h]{0.4\linewidth}
-  \includegraphics[width=1.35\linewidth]{graphics/Km.eps}
+  \includegraphics[width=1.35\linewidth]{Km.eps}
   \caption{$K_m(a_N)$ (NF2008)}
   \label{fig:km}
  \end{minipage}
  \hfill
  \begin{minipage}[h]{0.4\linewidth}
-  \includegraphics[width=1.35\linewidth]{graphics/A.eps}
+  \includegraphics[width=1.35\linewidth]{A.eps}
   \caption{$A(a_N)$ (NF2008)}
   \label{fig:A}
  \end{minipage}  
@@ -158,13 +159,13 @@ Real (\ref{eq:Q:r}) and imaginary (\ref{eq:Q:i}) part of $Q_m(a_N)$ (Fig.\ref{fi
 \begin{figure}[h]
 \begin{center}
 \begin{minipage}[h]{0.4\linewidth}
- \includegraphics[width=1.35\linewidth]{graphics/Q.eps}
+ \includegraphics[width=1.35\linewidth]{Q.eps}
  \caption{$Q(a_N):~m=-11,V_{0}=0km/sec$ (NF2008)}
  \label{fig:Q}
 \end{minipage}
 \hfill
 \begin{minipage}[h]{0.4\linewidth}
- \includegraphics[width=1.35\linewidth]{graphics/Q1.eps}
+ \includegraphics[width=1.35\linewidth]{Q1.eps}
  \caption{$Q_{1m}:~m=-11,V_{0}=0km/sec$ (NF2008)}
  \label{fig:Q1}
 \end{minipage}
@@ -195,30 +196,29 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
  mK_m(a_N)F_m^2(a_N) \Bigg)^2 + \Bigg( \\
  A(a_N) \dfrac{c}{4\pi\sigma(a_N)a} \Bigg)^2}\frac{B_m^a}{B_0}
 \end{equation}
-\begin{figure}
+\begin{figure}[h!]
  \centering
- \includegraphics[width=0.7\textwidth]{graphics/perturbation.eps}
+ \includegraphics[width=0.6\textwidth]{perturbation.eps}
  \caption{Plasma pressure perturbation (NF2008)}
  \label{fig:pert}
 \end{figure}
 
 
-
-\newpage
 \part{Profiles NF2013}
 \section{Density $n_e$ and temperature $T_{e,i}$}
+All subsequent profiles correspond $60^o$ phase.
 \begin{figure}[h]
 \begin{center}
 \begin{minipage}[h]{0.4\linewidth} 
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/evans60/ne60.eps}
+ \includegraphics[width=1.35\linewidth]{evans60/ne60.eps}
  \caption{Electron density, $10^{19} m^{-3}$ (NF2013)}
  \label{fig:ne60}
 \end{minipage}
 \hfill
 \begin{minipage}[h]{0.4\linewidth}
  \centering
- \includegraphics[width=1.35\linewidth]{graphics/evans60/T60.eps}
+ \includegraphics[width=1.35\linewidth]{evans60/T60.eps}
  \caption{Electron and ion temperature, eV (NF2013)}
  \label{fig:T60}
 \end{minipage}
@@ -229,13 +229,13 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
 \begin{figure}[h]
 \begin{center}
 \begin{minipage}[ht]{0.4\linewidth} 
- \includegraphics[width=1.35\linewidth]{graphics/evans60/P60.eps}
+ \includegraphics[width=1.35\linewidth]{evans60/P60.eps}
  \caption{Electron, ion and total pressure, $kPa$ (NF2013)}
  \label{fig:P60}
 \end{minipage}
 \hfill
 \begin{minipage}[ht]{0.4\linewidth} 
- \includegraphics[width=1.35\linewidth]{graphics/evans60/dP60.eps}
+ \includegraphics[width=1.35\linewidth]{evans60/dP60.eps}
  \caption{Pressure gradients, $kPa$ (NF2013)}
  \label{fig:DP60}
 \end{minipage}
@@ -245,7 +245,7 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
 \section{Radial electric field $E_{0r}(a_N)$}
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.55\textwidth]{graphics/evans60/E60.eps}
+ \includegraphics[width=0.55\textwidth]{evans60/E60.eps}
  \caption{Radial electric field, $kV$ (NF2013)}
  \label{fig:Efield60}
 \end{figure}
@@ -254,13 +254,13 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
 \begin{figure}[h]
 \begin{center}
  \begin{minipage}[h]{0.4\linewidth}
-  \includegraphics[width=1.35\linewidth]{graphics/evans60/K60.eps}
+  \includegraphics[width=1.35\linewidth]{evans60/K60.eps}
   \caption{$K_m(a_N)$ (NF2013)}
   \label{fig:km60}
  \end{minipage}
  \hfill
  \begin{minipage}[h]{0.4\linewidth}
-  \includegraphics[width=1.35\linewidth]{graphics/evans60/A60.eps}
+  \includegraphics[width=1.35\linewidth]{evans60/A60.eps}
   \caption{$A(a_N)$ (NF2013)}
   \label{fig:A60}
  \end{minipage}  
@@ -271,13 +271,13 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
 \begin{figure}[h]
 \begin{center}
 \begin{minipage}[h]{0.4\linewidth}
- \includegraphics[width=1.4\linewidth]{graphics/evans60/Q60.eps}
+ \includegraphics[width=1.4\linewidth]{evans60/Q60.eps}
  \caption{$Q(a_N):~m=-11,V_{0}=0km/sec$ (NF2013)}
  \label{fig:Q60}
 \end{minipage}
 \hfill
 \begin{minipage}[h]{0.4\linewidth}
- \includegraphics[width=1.4\linewidth]{graphics/evans60/Q1_60.eps}
+ \includegraphics[width=1.4\linewidth]{evans60/Q1_60.eps}
  \caption{$Q_{1m}:~m=-11,V_{0}=0km/sec$ (NF2013)}
  \label{fig:Q160}
 \end{minipage}
@@ -286,8 +286,31 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
 \section{Plasma pressure perturbation $P_m$}
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.7\textwidth]{graphics/evans60/perturbation_60.eps}
+ \includegraphics[width=0.7\textwidth]{evans60/perturbation_60.eps}
  \caption{Plasma pressure perturbation (NF2013)}
  \label{fig:pert60}
 \end{figure}
+
+\newpage
+\part{Bootstrap current}
+\section{Comparing}
+Bootstrap current [Wesson (4.9.2)]:
+\begin{equation}\label{eq:btstrpWesson}
+ j_b(a_N)=\bigg(\frac{a}{R}\bigg)^{-0.5}\frac{cn_0(a_N)q(a_N)}{B_{0\zeta}}\Bigg[ \\
+ 2.44\bigg(T_{0e}(a_N)+T_{0i}(a_N)\bigg)\frac{1}{n_0(a_N)}\frac{dn_0}{da_N}+ \\
+ 0.69\frac{dT_{0e}}{da_N}-0.42\frac{dT_{0i}}{da_N}\Bigg]
+\end{equation}
+where $\dfrac{a}{R}=\varepsilon$ - inverse aspect ratio.
+\newline
+We need to compare two quantities: $Q_m(a_N)$ (\ref{eq:Q:r}) and $Q_m^*(a_N)$ (\ref{eq:btsrpTerm}):
+\begin{equation}\label{eq:btsrpTerm}
+ Q_m^*(a_N)=\bigg(\frac{a}{R}\bigg)^{1.5}\frac{4\pi ma_N^2}{B_{0\zeta}^2}Q_{1m}(a_N) \\
+ \frac{d}{da_N}\bigg\{ n_0(a_N)q(a_N) \Bigg[ 2.44\bigg(T_{0e}(a_N)+T_{0i}(a_N)\bigg)\frac{1}{n_0(a_N)}\frac{dn_0}{da_N} + \\
+ 0.69\frac{dT_{0e}}{da_N}-0.42\frac{dT_{0i}}{da_N} \Bigg]  \bigg\}
+\end{equation}
+\begin{equation}\label{eq:QbyQ1}
+ \frac{Q_m(a_N)}{Q_{1m}(a_N)}=\frac{A_m(a_N)}{F_m(a_N)}
+\end{equation}
+
+
 \end{document}

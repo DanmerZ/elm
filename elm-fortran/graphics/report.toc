@@ -1,19 +1,20 @@
 \contentsline {part}{I\hspace {1em}Profiles NF2008}{1}{part.1}
-\contentsline {section}{\numberline {1}Normalized poloidal magnetic flux $\psi _N$}{1}{section.1}
+\contentsline {section}{\numberline {1}Normalized poloidal magnetic flux $\psi _N$}{2}{section.1}
 \contentsline {section}{\numberline {2}Density $n_e$ and temperature $T_{e,i}$}{2}{section.2}
 \contentsline {section}{\numberline {3}Plasma pressure and pressure gradients}{3}{section.3}
-\contentsline {section}{\numberline {4}Radial electric field $E_{0r}(a_N)$}{3}{section.4}
-\contentsline {section}{\numberline {5}Plasma conductivity $\sigma (a_N)$}{3}{section.5}
-\contentsline {section}{\numberline {6}Equation}{3}{section.6}
-\contentsline {section}{\numberline {7}$K_m(a_N), A(a_N)$}{4}{section.7}
+\contentsline {section}{\numberline {4}Radial electric field $E_{0r}(a_N)$}{4}{section.4}
+\contentsline {section}{\numberline {5}Plasma conductivity $\sigma (a_N)$}{4}{section.5}
+\contentsline {section}{\numberline {6}Equation}{4}{section.6}
+\contentsline {section}{\numberline {7}$K_m(a_N), A(a_N)$}{5}{section.7}
 \contentsline {section}{\numberline {8}$Q_m(a_N)$}{5}{section.8}
-\contentsline {section}{\numberline {9}$Q_{1m}(a_N)$}{5}{section.9}
-\contentsline {section}{\numberline {10}Pressure perturbation $P_m$}{5}{section.10}
-\contentsline {part}{II\hspace {1em}Profiles NF2013}{7}{part.2}
-\contentsline {section}{\numberline {11}Density $n_e$ and temperature $T_{e,i}$}{7}{section.11}
-\contentsline {section}{\numberline {12}Plasma pressure and pressure gradients}{7}{section.12}
-\contentsline {section}{\numberline {13}Radial electric field $E_{0r}(a_N)$}{8}{section.13}
-\contentsline {section}{\numberline {14}$K_m(a_N)$, $A(a_N)$}{8}{section.14}
-\contentsline {section}{\numberline {15}$Q_m(a_N)$, $Q_{1m}(a_N)$}{9}{section.15}
-\contentsline {section}{\numberline {16}Plasma pressure perturbation $P_m$}{9}{section.16}
-\contentsline {part}{III\hspace {1em}Bootstrap current}{10}{part.3}
+\contentsline {section}{\numberline {9}$Q_{1m}(a_N)$}{6}{section.9}
+\contentsline {section}{\numberline {10}Pressure perturbation $P_m$}{7}{section.10}
+\contentsline {part}{II\hspace {1em}Profiles NF2013}{8}{part.2}
+\contentsline {section}{\numberline {11}Density $n_e$ and temperature $T_{e,i}$}{8}{section.11}
+\contentsline {section}{\numberline {12}Plasma pressure and pressure gradients}{8}{section.12}
+\contentsline {section}{\numberline {13}Radial electric field $E_{0r}(a_N)$}{9}{section.13}
+\contentsline {section}{\numberline {14}$K_m(a_N)$, $A(a_N)$}{9}{section.14}
+\contentsline {section}{\numberline {15}$Q_m(a_N)$, $Q_{1m}(a_N)$}{10}{section.15}
+\contentsline {section}{\numberline {16}Plasma pressure perturbation $P_m$}{10}{section.16}
+\contentsline {part}{III\hspace {1em}Bootstrap current}{11}{part.3}
+\contentsline {section}{\numberline {17}Comparing}{11}{section.17}

@@ -9,7 +9,7 @@ subroutine Bootstrap
  
  real(8) :: dx, j1, Ig
  
- dx = (finish - start)/imax
+ dx = (finish - start)/1.0d0/imax
  
  do i = 1,imax
      ne1 = 1.d+13*ne_(i)    !cm^-3

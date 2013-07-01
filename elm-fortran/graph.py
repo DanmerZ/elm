@@ -115,6 +115,20 @@ ylabel('Electric field, [kV]',fontsize=20)
 legend(loc='lower left')
 savefig("graphics/E.eps")
 
+#Fm
+clf()
+B = loadtxt("data/E.dat")
+rc('xtick',labelsize=17)    
+rc('ytick',labelsize=17) 
+grid(True)
+xlim(0.9,1.0)
+ylim(-0.5,0.5)
+plot(B[:,0],B[:,2],'k',label=r'$F_{m}$',lw=2.5)
+xlabel(r'$a_{N}$',fontsize=20)
+ylabel(r'$F_{m}(a_N)$',fontsize=20)
+legend(loc='lower left')
+savefig("graphics/Fm.eps")
+
 #Km
 clf()
 B = loadtxt("data/Km_A_.dat")
@@ -152,11 +166,11 @@ B = loadtxt("data/Bootstrap.dat")
 rc('xtick',labelsize=17)    
 rc('ytick',labelsize=17) 
 grid(True)
-xlim(0.9,1.)
+xlim(0.85,1.)
 plot(B[:,0],B[:,1],'k',label='Re',lw=2.5)
 plot(B[:,0],B[:,2],'k--',label='Im',lw=2.5)
 xlabel(r'$a_{N}$',fontsize=20)
-ylabel('Calculate: (R/a)**0.5 ...... ',fontsize=20)
+ylabel(r'$Q^*(a_N)$',fontsize=20)
 legend()
 savefig("graphics/Bootstrap.eps")
 
@@ -189,3 +203,59 @@ ylabel(r'$\sigma(a_N), sec^{-1}$',fontsize=20)
 legend(loc='lower left')
 title(r'$\sigma(a_N),sec^{-1}$')
 savefig("graphics/sigma.eps")
+
+
+
+
+
+
+
+
+
+
+####
+#compare
+clf()
+B = loadtxt("data/compare.dat")
+rc('xtick',labelsize=17)    
+rc('ytick',labelsize=17) 
+grid(True)
+xlim(0.85,1.0)
+#ylim(0.,1.5)
+plot(B[:,0],B[:,1],'k',label=r'$qu1$',lw=2.5)
+plot(B[:,0],B[:,2],'r',label=r'$qu2$',lw=2.5)
+xlabel(r'$a_{N}$',fontsize=20)
+ylabel(r'$qu1,qu2$',fontsize=20)
+legend(loc='lower left')
+#title(r'$\sigma(a_N),sec^{-1}$')
+savefig("graphics/compare.eps")
+#compare dp-dpx
+clf()
+B = loadtxt("data/dp-ddpx.dat")
+rc('xtick',labelsize=17)    
+rc('ytick',labelsize=17) 
+grid(True)
+xlim(0.85,1.0)
+#ylim(0.,1.5)
+plot(B[:,0],B[:,1],'k',label='dP',lw=2.5)
+plot(B[:,0],B[:,2],'r',label=r'$dPx$',lw=2.5)
+xlabel(r'$a_{N}$',fontsize=20)
+ylabel(r'$qu1,qu2$',fontsize=20)
+legend(loc='lower left')
+#title(r'$\sigma(a_N),sec^{-1}$')
+savefig("graphics/compare-dp.eps")
+#compare ddpx
+clf()
+B = loadtxt("data/ddpx.dat")
+rc('xtick',labelsize=17)    
+rc('ytick',labelsize=17) 
+grid(True)
+xlim(0.85,1.0)
+#ylim(0.,1.5)
+plot(B[:,0],B[:,1],'k',label='dP',lw=2.5)
+#plot(B[:,0],B[:,2],'r',label=r'$dPx$',lw=2.5)
+xlabel(r'$a_{N}$',fontsize=20)
+ylabel(r'$qu1,qu2$',fontsize=20)
+legend(loc='lower left')
+#title(r'$\sigma(a_N),sec^{-1}$')
+savefig("graphics/compare-dp1.eps")

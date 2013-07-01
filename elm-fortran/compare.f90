@@ -1,0 +1,53 @@
+subroutine compare
+ use ArDef
+ use Profiles
+ implicit none
+ 
+ real(8),dimension(imax) :: qu1, qu2
+ real(8),dimension(imax) :: ne1,te1,ti1,dne,dte,dti,dpx,ddpx
+ real(8) :: dx,x
+ integer i
+ 
+ dx = (finish-start) / 1.0d0 / imax
+ 
+ do i=1,imax
+     ne1(i)=1.d+13*ne_(i)
+     te1(i)=1.6022d-12*te_(i)
+     ti1(i)=1.6022d-12*ti_(i)
+ end do
+ 
+ dne(1)=(ne1(2)-ne1(1))/dx
+ dte(1)=(te1(2)-te1(1))/dx
+ dti(1)=(ti1(2)-ti1(1))/dx
+ do i = 1,imax
+     x = x_(i)
+     qu1(i) = 20.*m*(DPe_(i)+DPi_(i))*(1./q(x)/q(x)-9.)
+     if (i>1) then
+      dne(i)=(ne1(i)-ne1(i-1))/dx
+      dte(i)=(te1(i)-te1(i-1))/dx
+      dti(i)=(ti1(i)-ti1(i-1))/dx
+     end if
+     dpx(i)=ne1(i)*q(x)*(2.44*(te1(i)+ti1(i))*dne(i)/ne1(i)+0.69*dte(i)-0.42*dti(i))
+ end do
+ ddpx(1)=(dpx(2)-dpx(1))/dx
+ do i=2,imax
+     ddpx(i)=(dpx(i)-dpx(i-1))/dx
+ end do
+ 
+ open(11,file='data/compare.dat')
+ open(12,file='data/dp-ddpx.dat')
+ open(13,file='data/ddpx.dat')
+ do i=1,imax
+     x = x_(i)
+     qu2(i) = ((aR/ap)**1.5)*x*ddpx(i)*Fm(x)
+     !qu2(i) = m*((aR/ap)**1.5)*4.*PiNum*(x**2)*ddpx(i)*ReQ1_(i)/B0/B0
+     write(11,*) x_(i),qu1(i),qu2(i)
+     !write(11,*) x_(i),qu2(i)
+     write(12,*) x_(i),10.*(DPe_(i)+DPi_(i)),dpx(i)
+     write(13,*) x_(i), ddpx(i)
+ end do
+ close(11) 
+ close(12)
+ close(13)
+
+end subroutine compare

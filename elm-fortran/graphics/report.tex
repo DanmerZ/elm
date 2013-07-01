@@ -1,6 +1,6 @@
 \documentclass[11pt,oneside,a4paper,notitlepage]{article}
 \usepackage{graphicx,amsmath,hyperref}
-\usepackage[margin=2cm]{geometry}
+%\usepackage[margin=2.5cm]{geometry}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
@@ -28,16 +28,16 @@ where $\mu=1/q$, $q(a_N)=1+3.6a_N^{5.6}$ is safety factor.
 Profiles of electron density $n_e(\psi_N)$ and electron and ion temperature $T_{e,i}(\psi_N)$ 
 (\ref{eq:ne},\ref{eq:T}):
 \begin{equation}\label{eq:ne}
- n_e(\psi_N)=n_{sep}+a_{n0}\Bigg[tanh\Bigg(2\frac{1-\psi_{mod}}{\Delta}\Bigg)-\\
- tanh\Bigg(2\frac{\psi_N-\psi_{mod}}{\Delta}\Bigg)\Bigg] \\
- +a_{n1}H\Bigg(1-\frac{\psi_N}{\psi_{ped}}\Bigg)\Bigg[1-\\
- (\frac{\psi_N}{\psi_{ped}})^{\alpha_{n1}}\Bigg]^{\alpha_{n2}},
+\begin{split}
+ &n_e(\psi_N)=n_{sep}+a_{n0}\Bigg[tanh\Bigg(2\frac{1-\psi_{mod}}{\Delta}\Bigg)- tanh\Bigg(2\frac{\psi_N-\psi_{mod}}{\Delta}\Bigg)\Bigg] +\\
+ &+a_{n1}H\Bigg(1-\frac{\psi_N}{\psi_{ped}}\Bigg)\Bigg[1-(\frac{\psi_N}{\psi_{ped}})^{\alpha_{n1}}\Bigg]^{\alpha_{n2}},
+ \end{split}
 \end{equation}
 \begin{equation}\label{eq:T}
- T_{e,i}(\psi_N)=T_{sep}+a_{T0}\Bigg[tanh\Bigg(2\frac{1-\psi_{mod}}{\Delta}\Bigg)-\\
- tanh\Bigg(2\frac{\psi_N-\psi_{mod}}{\Delta}\Bigg)\Bigg] \\
- +a_{T1}H\Bigg(1-\frac{\psi_N}{\psi_{ped}}\Bigg)\Bigg[1-\\
- (\frac{\psi_N}{\psi_{ped}})^{\alpha_{T1}}\Bigg]^{\alpha_{T2}},
+\begin{split}
+ &T_{e,i}(\psi_N)=T_{sep}+a_{T0}\Bigg[tanh\Bigg(2\frac{1-\psi_{mod}}{\Delta}\Bigg)- tanh\Bigg(2\frac{\psi_N-\psi_{mod}}{\Delta}\Bigg)\Bigg] \\
+ &+a_{T1}H\Bigg(1-\frac{\psi_N}{\psi_{ped}}\Bigg)\Bigg[1-(\frac{\psi_N}{\psi_{ped}})^{\alpha_{T1}}\Bigg]^{\alpha_{T2}},
+\end{split}
 \end{equation}
 where $\Delta$ is pedestal width, $\psi_{ped}=1-\Delta,\psi_{mid}=1-\Delta/2$, 
 parameters $a_{n0},a_{t0}$ and $\Delta$ affect the pedestal profiles, 
@@ -115,9 +115,10 @@ Plasma conductivity $\sigma(a_N)$ (\ref{fig:sigma}, Fig.\ref{fig:sigma}):
 \section{Equation}
 Our equation (\ref{eq:equation:1}):
 \begin{equation} \label{eq:equation:1}
-\frac{1}{a_N}\frac{d}{da_N}\Bigg( a_N \frac{d}{da_N}(a_NB_m^a) \Bigg) \\
--\frac{m^2}{a_N^2}(a_NB_m^a)-\frac{m}{a_N^2}Q_m(a_N)(a_NB_m^a)- \\
-\frac{4\pi m^2}{cB_{0\zeta}}\frac{R}{a}\frac{dj_b}{da_N}Q_{1m}(a_N)(a_NB_m^a)=0
+\begin{split}
+&\frac{1}{a_N}\frac{d}{da_N}\Bigg( a_N \frac{d}{da_N}(a_NB_m^a) \Bigg) -\frac{m^2}{a_N^2}(a_NB_m^a)-\frac{m}{a_N^2}Q_m(a_N)(a_NB_m^a)- \\
+&-\frac{4\pi m^2}{cB_{0\zeta}}\frac{R}{a}\frac{dj_b}{da_N}Q_{1m}(a_N)(a_NB_m^a)=0
+\end{split}
 \end{equation}
 \section{$K_m(a_N), A(a_N)$}
 Quantities $K_m(a_N)$ (Eq.\ref{eq:km}, Fig.\ref{fig:km}) and $A(a_N)$ 
@@ -147,13 +148,18 @@ Quantities $K_m(a_N)$ (Eq.\ref{eq:km}, Fig.\ref{fig:km}) and $A(a_N)$
 \end{figure}
 \section{$Q_m(a_N)$}
 Real (\ref{eq:Q:r}) and imaginary (\ref{eq:Q:i}) part of $Q_m(a_N)$ (Fig.\ref{fig:Q}):
+\begin{equation}\label{eq:Q}
+ Q_m(a_N)=\frac{K_m(a_N)A_m(a_N)\Bigg(mK_m(a_N)F_m^2(a_N)+iA_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)}{\\
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2 +\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
+\end{equation}
+
 \begin{equation}\label{eq:Q:r}
  \textnormal{Re}Q_m=\frac{mK_m^2(a_N)F_m^2(a_N)A(a_N)}{\\
- \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a}\Bigg)^2}
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
 \end{equation}
 \begin{equation}\label{eq:Q:i}
- \textnormal{Im}Q_m=\frac{K_m(a_N)A^2(a_N)\dfrac{c}{4\pi\sigma(a_N)a} }{\\
- \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a}\Bigg)^2}
+ \textnormal{Im}Q_m=\frac{K_m(a_N)A^2(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na} }{\\
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
 \end{equation}
 \begin{figure}[h]
 \begin{center}
@@ -172,13 +178,17 @@ Real (\ref{eq:Q:r}) and imaginary (\ref{eq:Q:i}) part of $Q_m(a_N)$ (Fig.\ref{fi
 \end{figure}
 \section{$Q_{1m}(a_N)$}
 Real (\ref{eq:Q1:r}) and imaginary (\ref{eq:Q1:i}) part of $Q_{1m}$ (Fig.\ref{fig:Q1}):
+\begin{equation}\label{eq:Q1}
+ Q_{1m}(a_N)=\frac{K_m(a_N)F_m(a_N)\Bigg(mK_m(a_N)F_m^2(a_N)+iA_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)}{\\
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2 +\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
+\end{equation}
 \begin{equation}\label{eq:Q1:r}
  \textnormal{Re}Q_{1m}=\frac{mK_m^2(a_N)F_m^3(a_N)}{\\
- \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a}\Bigg)^2}
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
 \end{equation}
 \begin{equation}\label{eq:Q1:i}
- \textnormal{Im}Q_{1m}=\frac{K_m(a_N)F_m(a_N)A(a_N)\dfrac{c}{4\pi\sigma(a_N) a}}{\\
- \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a}\Bigg)^2}
+ \textnormal{Im}Q_{1m}=\frac{K_m(a_N)F_m(a_N)A(a_N)\dfrac{c}{4\pi\sigma(a_N)a_N a}}{\\
+ \Bigg(mK_m(a_N)F_m^2(a_N)\Bigg)^2+\Bigg(A_m(a_N)\dfrac{c}{4\pi\sigma(a_N)a_Na}\Bigg)^2}
 \end{equation}
 \section{Pressure perturbation $P_m$}
 Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}):
@@ -195,14 +205,12 @@ Real and imaginary part of pressure perturbations (\ref{eq:rpert},\ref{eq:ipert}
  mK_m(a_N)F_m^2(a_N) \Bigg)^2 + \Bigg( \\
  A(a_N) \dfrac{c}{4\pi\sigma(a_N)a} \Bigg)^2}\frac{B_m^a}{B_0}
 \end{equation}
-\begin{figure}
+\begin{figure}[h!]
  \centering
- \includegraphics[width=0.7\textwidth]{perturbation.eps}
+ \includegraphics[width=0.6\textwidth]{perturbation.eps}
  \caption{Plasma pressure perturbation (NF2008)}
  \label{fig:pert}
 \end{figure}
-
-
 
 \newpage
 \part{Profiles NF2013}
@@ -291,7 +299,69 @@ All subsequent profiles correspond $60^o$ phase.
  \caption{Plasma pressure perturbation (NF2013)}
  \label{fig:pert60}
 \end{figure}
+
 \newpage
 \part{Bootstrap current}
-In progress .................
+\section{Comparing}
+Bootstrap current [Wesson (4.9.2)]:
+\begin{equation}\label{eq:btstrpWesson}
+ j_b(a_N)=\bigg(\frac{a}{R}\bigg)^{-0.5}\frac{cn_0(a_N)q(a_N)}{B_{0\zeta}}\Bigg[ \\
+ 2.44\bigg(T_{0e}(a_N)+T_{0i}(a_N)\bigg)\frac{1}{n_0(a_N)}\frac{dn_0}{da_N}+ \\
+ 0.69\frac{dT_{0e}}{da_N}-0.42\frac{dT_{0i}}{da_N}\Bigg]
+\end{equation}
+\newline
+We need to compare two quantities: $Q_m(a_N)$ (\ref{eq:Q}) and $Q_m^*(a_N)$ (\ref{eq:btsrpTerm}):
+\begin{equation}
+ \label{eq:btsrpTerm}
+ \begin{split}
+ Q_m^*(a_N)=\bigg(\frac{R}{a}\bigg)^{1.5}\frac{4\pi ma_N^2}{B_{0\zeta}^2}Q_{1m}(a_N) \frac{d}{da_N}\Bigg\{ n_0(a_N)q(a_N)\times \\
+ \times\bigg[ 2.44\bigg(T_{0e}(a_N)+T_{0i}(a_N)\bigg)\frac{1}{n_0(a_N)}\frac{dn_0}{da_N} + 0.69\frac{dT_{0e}}{da_N}-0.42\frac{dT_{0i}}{da_N} \bigg]  \Bigg\}
+\end{split}
+\end{equation}
+
+\begin{equation}\label{eq:QbyQ1}
+ \frac{Q_m(a_N)}{Q_{1m}(a_N)}=\frac{A_m(a_N)}{F_m(a_N)}
+\end{equation}
+
+\begin{figure}[h]
+\begin{center}
+\begin{minipage}[ht]{0.4\linewidth} 
+ \centering
+ \includegraphics[width=1.35\linewidth]{A.eps}
+ \caption{$A_m(a_N)$ (NF2008)}
+ \label{fig:Acompare}
+\end{minipage}
+\hfill
+\begin{minipage}[ht]{0.4\linewidth} 
+ \centering
+ \includegraphics[width=1.35\linewidth]{Fm.eps}
+ \caption{$F_m(a_N)$(NF2008)}
+ \label{fig:DP}
+\end{minipage}
+\end{center}
+\end{figure}
+
+Compare two quantities $qu1$ and $qu2$ (Fig. \ref{fig:compare}):
+\begin{equation}\label{eq:qu1qu2}
+\begin{split}
+ qu1=2m\frac{dp_0}{da_N}(\mu^2-9)\longleftrightarrow qu2=\bigg(\frac{R}{a}\bigg)^{1.5}a_NF_m(a_N) \frac{d}{da_N}\Bigg\{ n_0(a_N)q(a_N)\times \\
+ \times\bigg[ 2.44\bigg(T_{0e}(a_N)+T_{0i}(a_N)\bigg)\frac{1}{n_0(a_N)}\frac{dn_0}{da_N} + 0.69\frac{dT_{0e}}{da_N}-0.42\frac{dT_{0i}}{da_N} \bigg]  \Bigg\}
+\end{split}
+\end{equation}
+ 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.7\textwidth]{compare.eps}
+ \caption{Compare(NF2008)}
+ \label{fig:compare}
+\end{figure}
+Real and imiginary part of $Q^*(a_N)$:
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.7\textwidth]{Bootstrap.eps}
+ \caption{$Q^*$ (NF2008)}
+ \label{fig:BootstrapQ*}
+\end{figure}
+
 \end{document}

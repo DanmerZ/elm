@@ -24,9 +24,9 @@
      d1 = c/(4.0*PiNum*sigma(NFlux_(i))*x*ap)
      znam = 1.0d0/((m*Km_(i)*(Fm(x))**2)**2 + (A_(i)*d1)**2)
      znam_(i) = znam 
-     ReQ_(i) = znam*m*Km_(i)*Km_(i)*A_(i)*Fm(x)*Fm(x)  
-     ImQ_(i) = znam*Km_(i)*A_(i)*A_(i)*d1  
-     ReQ1_(i) = znam*m*Km_(i)*Km_(i)*Fm(x)*Fm(x)*Fm(x)  
+     ReQ_(i) =  znam*Km_(i)*Km_(i)*A_(i)*Fm(x)*Fm(x)*m  
+     ImQ_(i) =  znam*Km_(i)*A_(i)*A_(i)*d1  
+     ReQ1_(i) = znam*Km_(i)*Km_(i)*Fm(x)*Fm(x)*Fm(x)*m  
      ImQ1_(i) = znam*Km_(i)*Fm(x)*A_(i)*d1 
 
     ReP_(i) = -x*(DPe_(i)+DPi_(i))*(aR/ap)*m*Km_(i)*Fm(x)*A_(i)*znam*d1
