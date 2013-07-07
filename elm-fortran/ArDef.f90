@@ -13,4 +13,7 @@ module ArDef
  
  integer, parameter ::  i1=940, i2=1000
  
+ real(8), dimension(imax) :: ne60_,Te60_,Ti60_,Pe60_,Pi60_,E60_,DPe60_,DPi60_
+ real(8), dimension(imax) :: ReQ,ImQ,ReP,ImP,ReQ1,ImQ1
+ 
 end module ArDef

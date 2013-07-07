@@ -4,9 +4,9 @@
   implicit none
   integer i
   real(8) :: dx,x1,x,d1,znam,sigma1
-  
+  real(8), dimension(imax) :: ne60_,Te60_,Ti60_,Pe60_,Pi60_,E60_,DPe60_,DPi60_
   real(8), dimension(imax) :: Km60_, A60_, znam60_
-  
+  real(8), dimension(imax) :: ReQ,ImQ,ReP,ImP,ReQ1,ImQ1
   dx = (finish-start)/1.0d0/imax
   x1=start
   100	format(4E14.5)

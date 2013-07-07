@@ -3,7 +3,7 @@ subroutine compare
  use Profiles
  implicit none
  
- real(8),dimension(imax) :: qu1, qu2
+ real(8),dimension(imax) :: qu1, qu2, qu11, qu22
  real(8),dimension(imax) :: ne1,te1,ti1,dne,dte,dti,dpx,ddpx
  real(8) :: dx,x
  integer i
@@ -22,6 +22,7 @@ subroutine compare
  do i = 1,imax
      x = x_(i)
      qu1(i) = 20.*m*(DPe_(i)+DPi_(i))*(1./q(x)/q(x)-9.)
+     qu11(i) = 2.*m*(1./q(x)/q(x)-9.)
      if (i>1) then
       dne(i)=(ne1(i)-ne1(i-1))/dx
       dte(i)=(te1(i)-te1(i-1))/dx
@@ -37,17 +38,21 @@ subroutine compare
  open(11,file='data/compare.dat')
  open(12,file='data/dp-ddpx.dat')
  open(13,file='data/ddpx.dat')
+ open(14,file='data/compare2.dat')
  do i=1,imax
      x = x_(i)
      qu2(i) = ((aR/ap)**1.5)*x*ddpx(i)*Fm(x)
+     qu22(i) = 2.44*q(x)*((aR/ap)**1.5)*x*Fm(x)*dne(i)/ne1(i)
      !qu2(i) = m*((aR/ap)**1.5)*4.*PiNum*(x**2)*ddpx(i)*ReQ1_(i)/B0/B0
      write(11,*) x_(i),qu1(i),qu2(i)
      !write(11,*) x_(i),qu2(i)
      write(12,*) x_(i),10.*(DPe_(i)+DPi_(i)),dpx(i)
      write(13,*) x_(i), ddpx(i)
+     write(14,*) x_(i), qu11(i), qu22(i)
  end do
  close(11) 
  close(12)
  close(13)
+ close(14)
 
 end subroutine compare
