@@ -6,11 +6,11 @@ program elm
  call CalculateFlux
  call ProfilesArrays 
  call CalculateQ 
- call Bootstrap		  
+! call Bootstrap		  
  !call SolveEq 
  call ProfilesToFiles 
- call Evans60
- call Bootstrap60	
+ !call Evans60
+ !call Bootstrap60	
  !call compare
 
 		 

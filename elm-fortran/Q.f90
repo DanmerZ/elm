@@ -34,21 +34,21 @@
  end do
  
  200 format(A20,E10.2)
- write(*,200) 'an', i1/1./i2
- write(*,*) '*********************************************'
- write(*,200) 'ne, cm-3', 1.d+13*ne_(i1*imax/i2)
- write(*,200) 'Te, erg', 1.6022d-12*Te_(i1*imax/i2)
- write(*,200) 'Ti, erg', 1.6022d-12*Ti_(i1*imax/i2)
- write(*,200) 'P, dyna/cm^2', 10.*(Pe_(i1*imax/i2) + Pi_(i1*imax/i2))
- write(*,200) 'dP, dyna/cm^2', 10.*(DPe_(i1*imax/i2)+DPi_(i1*imax/i2))
- write(*,200) 'ReQ', ReQ_(i1*imax/i2)
- write(*,200) 'ImQ', ImQ_(i1*imax/i2)
- write(*,200) 'A', A_(i1*imax/i2)
- write(*,200) 'Fm', Fm(x_(i1*imax/i2))
- write(*,200) 'Km', Km_(i1*imax/i2)
- write(*,200) 'ReQ1', ReQ1_(i1*imax/i2)
- write(*,200) 'ImQ1', ImQ1_(i1*imax/i2)
- write(*,*) '**********************************************'
+ !write(*,200) 'an', i1/1./i2
+ !write(*,*) '*********************************************'
+ !write(*,200) 'ne, cm-3', 1.d+13*ne_(i1*imax/i2)
+ !write(*,200) 'Te, erg', 1.6022d-12*Te_(i1*imax/i2)
+ !write(*,200) 'Ti, erg', 1.6022d-12*Ti_(i1*imax/i2)
+ !write(*,200) 'P, dyna/cm^2', 10.*(Pe_(i1*imax/i2) + Pi_(i1*imax/i2))
+ !write(*,200) 'dP, dyna/cm^2', 10.*(DPe_(i1*imax/i2)+DPi_(i1*imax/i2))
+ !write(*,200) 'ReQ', ReQ_(i1*imax/i2)
+ !write(*,200) 'ImQ', ImQ_(i1*imax/i2)
+ !write(*,200) 'A', A_(i1*imax/i2)
+ !write(*,200) 'Fm', Fm(x_(i1*imax/i2))
+ !write(*,200) 'Km', Km_(i1*imax/i2)
+ !write(*,200) 'ReQ1', ReQ1_(i1*imax/i2)
+ !write(*,200) 'ImQ1', ImQ1_(i1*imax/i2)
+ !write(*,*) '**********************************************'
  
  call A_Km_ToFiles
 		

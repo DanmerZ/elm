@@ -93,12 +93,12 @@ function Te(x)   ! eV
 
  tsep = 100.
  Delta = 0.07
- at0 = 370.			
- xmid = 1 - Delta/2
- c1 = -0.029 
+ at0 = 370.	
+ c1 = -0.029 		
+ xmid = 1. - Delta/2. 
  !parameters, which impact on core profile
- xped = 1 - Delta
- at1 = 3500.0d0
+ xped = 1 - Delta 
+ at1 = 350. !3500.0d0
  alt1 = 1.30d0
  alt2 = 1.50d0
 
@@ -126,7 +126,7 @@ function Ti(x)  !ev
  tsep = 0.1
  Delta = 0.115
  at0 = 0.33			
- xmid = 1 - Delta/2
+ xmid = 1. - Delta/2.
  c1 = 0.07
  !parameters, which impact on the core profile
  xped = 1 - Delta

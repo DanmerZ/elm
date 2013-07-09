@@ -14,6 +14,8 @@
 		
  DPe_(1) = (Pe(NFlux1_(2)) - Pe(NFlux1_(1))) / dx 
  DPi_(1) = (Pi(NFlux1_(2)) - Pi(NFlux1_(1))) / dx
+         DPepsi(1) = (Pe(dx) - Pe(0.0d0)) / dx 
+         DPipsi(1) = (Pi(dx) - Pi(0.0d0)) / dx
  
  DTe_(1) = (Te(NFlux1_(2)) - Te(NFlux1_(1))) / dx 
  DTi_(1) = (Ti(NFlux1_(2)) - Ti(NFlux1_(1))) / dx
@@ -24,20 +26,23 @@
  do  i = 1, imax
 					
 	x = x_(i)
-			
+		
 	ne_(i) = ne(NFlux1_(i))
 	Te_(i) = Te(NFlux1_(i))
 	Ti_(i) = Ti(NFlux1_(i))
 	Pe_(i) = Pe(NFlux1_(i))
 	Pi_(i) = Pi(NFlux1_(i))
+		
 	if (i > 1) then
 		psi1 = NFlux1_(i); psi2 = NFlux1_(i-1)
 		DPe_(i) = (Pe(psi1)-Pe(psi2))/dx
-		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx	
+		DPi_(i) = (Pi(psi1)-Pi(psi2))/dx
+		        DPepsi(i) = (Pe(x_(i))-Pe(x_(i-1))) / dx   
+		        DPipsi(i) = (Pi(x_(i))-Pi(x_(i-1))) / dx 	
 		DTe_(i) = (Te(psi1)-Te(psi2))/dx
 		DTi_(i) = (Ti(psi1)-Ti(psi2))/dx
 		Dne_(i) = (ne(psi1)-ne(psi2))/dx			
-	end if
+	end if	
 	E_(i) = Ef(NFlux1_(i))
 			
  end do

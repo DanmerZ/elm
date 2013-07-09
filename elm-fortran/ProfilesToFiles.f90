@@ -18,6 +18,7 @@
  open(18, file="data/Sol.dat")
  open(19, file="data/Q1.dat")
  open(20, file="data/sigma.dat")
+ open(21, file="data/DPpsi.dat")
 
 do i = 1, imax
     write(11,100) x_(i), NFlux_(i), DFlux_(i)
@@ -25,6 +26,7 @@ do i = 1, imax
     write(13,100) x_(i), Te_(i), Ti_(i)
     write(14,100) x_(i), Pe_(i), Pi_(i), Pe_(i) + Pi_(i)
     write(15,100) x_(i), DPe_(i), DPi_(i), DPe_(i) + DPi_(i)
+    write(21,100) NFlux_(i), DPepsi(i), DPipsi(i), DPepsi(i) + DPipsi(i)
     write(16,100) x_(i), E_(i), Fm(x_(i))
     write(17,100) x_(i), ReQ_(i), ImQ_(i)
     !write(18,100) x_(i), RSol_(i), 0.5*x_(i) !ISol_(i)
@@ -42,5 +44,6 @@ end do
  close(18)
  close(19)
  close(20)
+ close(21)
 	
 end subroutine ProfilesToFiles

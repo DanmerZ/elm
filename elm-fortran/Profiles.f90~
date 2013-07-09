@@ -93,12 +93,12 @@ function Te(x)   ! eV
 
  tsep = 100.
  Delta = 0.07
- at0 = 370.			
- xmid = 1 - Delta/2
- c1 = -0.029 
+ at0 = 370.	
+ c1 = -0.029 		
+ xmid = 1. - Delta/2. 
  !parameters, which impact on core profile
- xped = 1 - Delta
- at1 = 3500.0d0
+ xped = 1 - Delta 
+ at1 = 350.0d0
  alt1 = 1.30d0
  alt2 = 1.50d0
 
@@ -126,7 +126,7 @@ function Ti(x)  !ev
  tsep = 0.1
  Delta = 0.115
  at0 = 0.33			
- xmid = 1 - Delta/2
+ xmid = 1. - Delta/2.
  c1 = 0.07
  !parameters, which impact on the core profile
  xped = 1 - Delta
@@ -149,7 +149,7 @@ function Pe(x)   !Pa
  real(8) Pe
  real(8), intent(in) :: x
 
- Pe = 1.60217657*ne(x)*Te(x)		
+ Pe = 1.602176570d0*ne(x)*Te(x)		
 
 end function Pe
 !================= Pi, [Pa] ion pressure===============================
@@ -226,5 +226,119 @@ function HeavisideTheta(x)
  end if
 
 end function HeavisideTheta
+
+!============================
+!============================
+!Profiles from Phys. of Plasmas 20,052505 (2013)
+!Wilks, Stacey, Evans
+function ne60(x)
+implicit none
+ real(8) ne60
+ real(8), intent(in) :: x 
+ real(8) nsep, Delta, an0, xped, xmid, c1
+ real(8) an1, aln1, aln2
+ real(8) x1	
+    deltaX = 0.00
+	x1 = x - deltaX
+	nsep = 1.3
+	Delta = 0.082
+	an0 = 0.8	 
+	xmid = 1.0 - Delta/2.0		 
+	c1 = 0.0
+	xped = 1.0 - Delta
+	an1 = 1.0 
+	aln1 = 0.8
+	aln2 = 2.1
+
+	if (x <= xped) then
+     ne60=nsep+an0*(tanh(2*(1-xmid)/Delta)-tanh(2*((x1-c1)-xmid)/Delta)) + &
+     HeavisideTheta(1 - (x)/xped)*an1*(1 - ((x)/xped)**aln1)**aln2 
+     !HeavisideTheta(1 - (-c1 + x)/xped)*an1*(1 - ((-c1 + x)/xped)**aln1)**aln2 
+ else
+     ne60=nsep+an0*(tanh(2*(1-xmid)/Delta)-tanh(2*((x1-c1)-xmid)/Delta))
+ end if
+ 	 
+end function ne60
+!================
+function Te60(x)
+implicit none
+ real(8) Te60
+ real(8), intent(in) :: x
+ real(8) tsep, Delta, at0, xped, xmid, c1, at1, alt1, alt2			
+		 
+ real(8) x1
+    deltaX = 0.00
+	x1 = x - deltaX - 0.000
+	tsep = 120.0
+	Delta = 0.05
+	at0 = 560.0			
+	xmid = 1.0 - Delta/2.0
+	c1 = 0.00 		 
+	xped = 1.0 - Delta
+	at1 = 4900.
+	alt1 = 0.90
+	alt2 = 1.50
+
+    if (x <= xped) then
+	Te60=tsep+at0*(tanh(2.*(1.-xmid)/Delta)-tanh(2.*((x1-c1)-xmid)/Delta)) + &
+	HeavisideTheta(1. - (x)/xped)*at1*(1. - ((x)/xped)**alt1)**alt2
+	!HeavisideTheta(1 - (-c1 + x1)/xped)*at1*(1 - ((-c1 + x1)/xped)**alt1)**alt2
+ else 
+	Te60=tsep+at0*(tanh(2.*(1.-xmid)/Delta)-tanh(2.*((x1-c1)-xmid)/Delta))
+ end if
+
+end function Te60
+!================
+function Ti60(x)
+ implicit none
+ real(8) Ti60
+ real(8), intent(in) :: x
+ real(8) tsep, Delta, at0, xped, xmid, c1, at1, alt1, alt2	
+	
+ real(8) x1	
+ deltaX = 0.00 - 0.036
+ x1 = x + deltaX
+ tsep = 260.0
+Delta = 0.125
+	at0 = 1080.0			
+	xmid = 1.0 - Delta/2.0
+	c1 = 0.00		 
+	xped = 1.0 - Delta
+	at1 = 4000.0
+	alt1 = 0.9
+	alt2 = 1.5
+
+ if (x <= xped) then
+	Ti60=(tsep+at0*(tanh(2*(1-xmid)/Delta) - tanh(2*((x1-c1)-xmid)/Delta))) + &
+	HeavisideTheta(1 - (x)/xped)*at1*(1 - ((x)/xped)**alt1)**alt2
+	!HeavisideTheta(1 - (-c1 + x)/xped)*at1*(1 - ((-c1 + x)/xped)**alt1)**alt2
+ else
+	Ti60=(tsep+at0*(tanh(2*(1-xmid)/Delta) - tanh(2*((x1-c1)-xmid)/Delta)))
+ end if 
+ 
+end function Ti60
+!================
+function Ef60(x)
+ implicit none
+ real(8) Ef60
+ real(8), intent(in) :: x
+ real(8) :: a1,r1,r2,f1,be,ce,d1 !param. which define gradient 
+ real(8) :: ga1, ga2, ga3,k1  !parameters, which define the Gausian 
+ real(8) x1	
+ x1 = x
+	d1 = 20.0
+	r1 = 1.3
+	r2 = 1.3
+	f1 = 1.015
+	be = 7.78
+	ce = 22.0
+	a1 = 0.5
+			
+	ga1 = -673855.0
+	ga2 = 57.3688
+	ga3 = 1.4
+	k1 = -0.6
+ Ef60 = 1000*(d1+r2*(x1-f1)*exp(be+ce*r1*(x1-f1))*exp(-(a1*r1*(x1-f1))**2))
+end function Ef60
 
 end module Profiles

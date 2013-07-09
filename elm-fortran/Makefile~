@@ -1,5 +1,5 @@
 OBJECTS = Profiles.o ArDef.o main.o Flux.o ProfilesArrays.o ProfilesToFiles.o \
-          Q.o Bootstrap.o Evans60.o compare.o#Equation.o
+          Q.o Bootstrap.o Evans60.o compare.o #Bootstrap60.o #Equation.o
 
 main.exe: $(OBJECTS)
 	gfortran $(OBJECTS) -o main.exe
@@ -10,4 +10,9 @@ main.exe: $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
+
+remake:
+	gfortran Profiles.f90 ArDef.f90 main.f90 Flux.f90 ProfilesArrays.f90 ProfilesToFiles.f90 \
+          Q.f90 Bootstrap.f90 Evans60.f90 compare.f90 -o main.exe
+          ./main.exe
 
